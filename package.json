@@ -1,0 +1,20 @@
+{
+  "name": "demo-app-otel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiranraja09/demo-app-otel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiranraja09/demo-app-otel/issues"
+  },
+  "homepage": "https://github.com/kiranraja09/demo-app-otel#readme"
+}
