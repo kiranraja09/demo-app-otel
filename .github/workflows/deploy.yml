@@ -37,5 +37,11 @@ jobs:
           echo "$PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
           scp -o StrictHostKeyChecking=no -i private_key.pem -r * $USER@$HOST:~/app/
-          ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST "cd ~/app && npm install && pm2 restart all || pm2 start index.js"
+          ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
+            command -v node >/dev/null 2>&1 || curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt install -y nodejs
+            command -v pm2 >/dev/null 2>&1 || npm install -g pm2
+            cd ~/app
+            npm install
+            pm2 restart all || pm2 start index.js
+          EOF
 
